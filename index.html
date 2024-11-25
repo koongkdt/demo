@@ -1,0 +1,804 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHILLMOO GUY</title>
+<link rel="icon" type="image/png" href="images/lggg-MQY6Rl0KflAdkdOARK88WHWjFligv9.png">
+<link rel="apple-touch-icon" href="images/lggg-MQY6Rl0KflAdkdOARK88WHWjFligv9.png">
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff&amp;display=swap" rel="stylesheet">
+<style>
+  * {
+      font-family: 'DynaPuff', cursive;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+  }
+
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: #C4A484;
+      color: #594E4A;
+  }
+
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+  }
+
+  nav {
+      background-color: #c4a4849d;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+  }
+
+  nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .logo img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s;
+  }
+
+  .logo img:hover {
+      transform: scale(1.1);
+  }
+
+  .nav-links {
+      display: none;
+  }
+
+  .menu-toggle {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+      .nav-links {
+          display: flex;
+          gap: 2rem;
+      }
+      .menu-toggle {
+          display: none;
+      }
+  }
+
+  .nav-links a {
+      color: #C4660F;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+      color: #9d174d;
+  }
+
+  .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background-image: url('images/back.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 6rem 0 2rem;
+      margin-bottom: 0;
+  }
+
+  .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      position: relative;
+      z-index: 2;
+  }
+
+  .hero-gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, rgba(251, 207, 232, 0), #C4A484);
+  }
+
+  .hero-content .slider {
+      margin: 0;
+      width: 100%;
+      max-width: 800px;
+  }
+
+  .hero-content .social-links {
+      margin-bottom: 0;
+  }
+
+  .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+  }
+
+  .slider {
+      position: relative;
+      height: 24rem;
+      max-width: 800px;
+      margin: 2rem auto 3rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: neon 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon {
+      from {
+          box-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #C4660F, 0 0 14px #C4660F, 0 0 16px #C4660F, 0 0 20px #C4660F, 0 0 30px #C4660F;
+      }
+      to {
+          box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #C4660F, 0 0 7px #C4660F, 0 0 8px #C4660F, 0 0 10px #C4660F, 0 0 15px #C4660F;
+      }
+  }
+
+  .slider-container {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      height: 100%;
+  }
+
+  .slider-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+  }
+
+  .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+  }
+
+  .slider-button.left {
+      left: 1rem;
+  }
+
+  .slider-button.right {
+      right: 1rem;
+  }
+
+  .slider-dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+  }
+
+  .slider-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+  }
+
+  .slider-dot.active {
+      background-color: white;
+  }
+
+  .button {
+      background-color: #AB8B7A;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .button:hover {
+      background-color: #C4660F;
+      transform: translateY(-2px);
+  }
+
+  .button.inverted {
+      background-color: #AB8B7A;
+      color: white;
+  }
+
+  .button.inverted:hover {
+      background-color: #C4660F;
+  }
+
+  .button.copy-address {
+      background-color: white;
+      color: #AB8B7A;
+  }
+
+  .button.copy-address:hover {
+      background-color: #fdf2f8;
+      color: #C4660F;
+  }
+
+  .button.buy-pim {
+      background-color: white;
+      color: #AB8B7A;
+  }
+
+  .button.buy-pim:hover {
+      background-color: #fdf2f8;
+      color: #C4660F;
+  }
+
+  .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 10;
+  }
+
+  .social-link {
+      background-color: white;
+      color: #AB8B7A;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s, transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+  }
+
+  .social-link:hover {
+      background-color: #fce7f3;
+      transform: translateY(-2px);
+  }
+
+  .section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 80px;
+  }
+
+  .section-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #C4660F;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .story-container {
+      background-color: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: neon 1.5s ease-in-out infinite alternate;
+  }
+
+  @media (min-width: 768px) {
+      .story-container {
+          display: flex;
+          flex-direction: row-reverse;
+      }
+  }
+
+  .story-image {
+      flex: 1;
+      min-height: 300px;
+  }
+
+  .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .story-content {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .story-content h3 {
+      font-size: 2.5rem;
+      color: #AB8B7A;
+      margin-bottom: 1rem;
+  }
+
+  .story-content p {
+      font-size: 1.25rem;
+      color: #594E4A;
+      margin-bottom: 1.5rem;
+  }
+
+  .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+  }
+
+  .gallery-item {
+      aspect-ratio: 1 / 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+  }
+
+  .gallery-item:hover {
+      transform: scale(1.05);
+  }
+
+  .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .how-to-buy-section {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/lggg-QiELPeUK5wRwhJYs9CGnNphNdNKphf.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translateZ(-1px) scale(2);
+      z-index: 0;
+      opacity: 0.2;
+  }
+
+  .how-to-buy {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+  }
+
+  .how-to-buy ol {
+      list-style-type: none;
+      padding: 0;
+      font-size: 1.25rem;
+      color: #594E4A;
+      margin-bottom: 2rem;
+  }
+
+  .how-to-buy li {
+      margin-bottom: 2rem;
+  }
+
+  .how-to-buy h3 {
+      font-size: 1.5rem;
+      color: #AB8B7A;
+      margin-bottom: 0.5rem;
+  }
+
+  .how-to-buy p {
+      font-size: 1.25rem;
+      color: #594E4A;
+  }
+
+  .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #AB8B7A;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s;
+  }
+
+  .toast.show {
+      opacity: 1;
+  }
+
+  .energy-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #F4EBDC;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+  }
+
+  .energy-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #AB8B7A;
+      animation: energyFlow 3s linear infinite;
+  }
+
+  @keyframes energyFlow {
+      0% {
+          left: -100%;
+      }
+      100% {
+          left: 100%;
+      }
+  }
+
+  .tiktok-videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+  }
+
+  .tiktok-video {
+      max-width: 100%;
+  }
+
+  footer {
+      background-color: #4B5563;
+      color: #E5E7EB;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.875rem;
+  }
+
+  .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background-color: #AB8B7A;
+      z-index: 9999;
+  }
+
+  /* Mobile-specific styles */
+  @media (max-width: 767px) {
+      .hero-section {
+          padding-top: 4rem;
+      }
+
+      .slider {
+          height: 16rem;
+      }
+
+      .section-title {
+          font-size: 2rem;
+      }
+
+      .story-content h3 {
+          font-size: 2rem;
+      }
+
+      .story-content p {
+          font-size: 1rem;
+      }
+
+      .button {
+          font-size: 1.25rem;
+          padding: 0.75rem 1.5rem;
+      }
+
+      .how-to-buy h3 {
+          font-size: 1.25rem;
+      }
+
+      .how-to-buy p {
+          font-size: 1rem;
+      }
+  }
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<nav>
+  <div class="container">
+      <a href="#top" class="logo" id="logo-link">
+          <img src="images/lggg-MQY6Rl0KflAdkdOARK88WHWjFligv9.png" alt="Logo">
+      </a>
+      <div class="nav-links">
+          <a href="#story">ABOUT</a>
+          <a href="#mission">TOKENOMICS</a>
+          <a href="#buy">HOW TO BUY</a>
+      </div>
+  </div>
+</nav>
+
+<section class="hero-section">
+    <div class="hero-content container">
+        <div class="slider" id="top">
+            <div class="slider-container">
+                <img src="images/slide2.png" alt="1">
+                <img src="images/slide1.png" alt="2">
+                <img src="images/slide3.png" alt="3">
+            </div>
+            <button class="slider-button left">&lt;</button>
+            <button class="slider-button right">&gt;</button>
+            <div class="slider-dots"><div class="slider-dot active"></div><div class="slider-dot"></div><div class="slider-dot"></div></div>
+        </div>
+
+        <div class="hero-buttons">
+            <button id="copyAddress" class="button copy-address">4Ka7RcmhK7MXzN17mtH68RtBr17YBZmEcWX4m7Lrpump</button>
+            
+            <a href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=4Ka7RcmhK7MXzN17mtH68RtBr17YBZmEcWX4m7Lrpump" target="_blank" class="button buy-pim">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                    <path d="m6 9 6 6 6-6"></path>
+                </svg>
+                BUY $CHILLMOO NOW!!!
+            </a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://x.com/chillmoo_cto" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+            </a>
+            <a href="https://dexscreener.com/solana/angf5fzbgmzjhdaeqdfhwpxa5p23q3geg7nhyxygkbmg" target="_blank" class="social-link">
+                <img src="images/dtv3sp8.png" width="24" height="24" alt="YouTube icon">
+            </a>
+            <a href="https://t.me/armanidogsol" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2 11 13"></path>
+                    <path d="M22 2 15 22 11 13 2 9 22 2z"></path>
+                </svg>
+            </a>
+            <a href="https://www.dextools.io/app/en/solana/pair-explorer/AngF5FzbGmZJhdAeqdfhWPXa5p23q3GEg7nhyXyGKBmg?t=1732394928192" target="_blank" class="social-link">
+                <img src="images/zzxNpvG.png" width="24" height="24" alt="Social icon">
+            </a>
+        </div>
+    </div>
+    <div class="hero-gradient"></div>
+</section>
+<style>
+    @media (max-width: 768px) { /* Adjust breakpoint if needed */
+      .copy-address {
+        font-size: 12px; /* Set your desired font size for mobile */
+      }
+    }
+  </style>
+
+<main class="container">
+  <div class="energy-bar"></div>
+
+  <section id="story" class="section">
+      <h2 class="section-title">$CHILLMOO STORY</h2>
+      <div class="story-container">
+          <div class="story-image">
+              <img src="images/about.png" alt="Pim with a blue bird in the forest">
+          </div>
+          <div class="story-content">
+              <h3>Meet $CHILLMOO</h3>
+              <p>CHILLMOO GUY lives for luxury and commands respect wherever it goes.</p>
+              <p>POWERED BY SOLANA</p>
+              <button class="button" onclick="window.open('https://t.me/armanidogsol', '_blank')">Join the Community</button>
+          </div>
+      </div>
+  </section>
+
+  <section id="mission" class="section">
+    <h2 class="section-title">TOKENOMICS</h2>
+    <div class="story-container">
+        <div class="story-image">
+            <img src="images/token.png" alt="Smiling Friends characters">
+        </div>
+        <div class="story-content">
+            <h3>Let's get the wallets stacked</h3>
+            <p>CONTRACT RENOUNCED</p>
+            <p>TAX 0/0</p>
+            <p>LIQUIDITY BURNED.</p>
+            <button class="button" onclick="window.open('https://dexscreener.com/solana/angf5fzbgmzjhdaeqdfhwpxa5p23q3geg7nhyxygkbmg', '_blank')">Join Our Mission</button>
+        </div>
+    </div>
+</section>
+
+
+
+   <section id="buy" class="section how-to-buy-section">
+      <div class="parallax-bg"></div>
+      <h2 class="section-title">HOW TO BUY $CHILLMOO</h2>
+      <div class="how-to-buy">
+          <ol>
+              <li>
+                  <h3>SET UP YOUR WALLET</h3>
+                  <p>Set up your crypto wallet (e.g. Phantom)</p>
+              </li>
+              <li>
+                  <h3>BUY SOLANA</h3>
+                  <p>Use your favorite exchange, like Coinbase for example, to buy SOME $SOL. Later send them to your phantom address</p>
+              </li>
+              <li>
+                  <h3>BUY $CHILLMOO</h3>
+                  <p>GO TO SWAP IN THE PHANTOM WALLET AND ENTER THE $CHILLMOO CONTRACT ADDRESS (CA) TO SWAP YOUR $SOL FOR $CHILLMOO</p>
+              </li>
+          </ol>
+          <button class="button inverted" onclick="window.open('https://raydium.io/swap/?inputMint=sol&amp;outputMint=4Ka7RcmhK7MXzN17mtH68RtBr17YBZmEcWX4m7Lrpump', '_blank')">Buy $CHILLMOO Now</button>
+      </div>
+  </section>
+
+  <section id="shows-up" class="section">
+      <h2 class="section-title">$CHILLMOO SHOWS UP</h2>
+      <!-- <div class="tiktok-videos">
+        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://x.com/chillmoo_cto/status/1860339666538627232">$CHILLMOO</a> is Live now !<br><br>ca - 4Ka7RcmhK7MXzN17mtH68RtBr17YBZmEcWX4m7Lrpump<br><br>Chart - <a href="https://t.co/O7XY9hFlGL">https://t.co/O7XY9hFlGL</a><br><br>tg - <a href="https://t.co/FjyN6J6cxa">https://t.co/FjyN6J6cxa</a><br><br>To celebrate giving away 1,000,000 <a href="https://x.com/chillmoo_cto/status/1860339666538627232">$CHILLMOO</a> to first 777 to retweet and drop wallets ! <a href="https://t.co/iGVx6rMvDf">pic.twitter.com/iGVx6rMvDf</a></p>— CHILLMOO GUY (@armanidogsol) <a href="https://twitter.com/armanidogsol/status/1860412685831049648?ref_src=twsrc%5Etfw">November 23, 2024</a></blockquote> <script async="" src="js/widgets.js" charset="utf-8"></script>
+      </div> -->
+  </section>
+</main>
+
+<footer>
+  <p>2024 $CHILLMOO</p>
+</footer>
+
+<div id="toast" class="toast">Copied to clipboard!</div>
+
+<script>
+  // Slider functionality
+  const sliderContainer = document.querySelector('.slider-container');
+  const sliderDots = document.querySelector('.slider-dots');
+  const images = sliderContainer.querySelectorAll('img');
+  const leftButton = document.querySelector('.slider-button.left');
+  const rightButton = document.querySelector('.slider-button.right');
+  let currentIndex = 0;
+
+  function updateSlider() {
+    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    sliderDots.innerHTML = '';
+    images.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('slider-dot');
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        }
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlider();
+        });
+        sliderDots.appendChild(dot);
+    });
+  }
+
+  leftButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateSlider();
+  });
+
+  rightButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateSlider();
+  });
+
+  updateDots();
+
+  // Auto-slide functionality
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateSlider();
+  }, Math.floor(Math.random() * (10000 - 7000 + 1) + 7000));
+
+  // Copy address functionality
+  const copyAddressButton = document.getElementById('copyAddress');
+  const toast = document.getElementById('toast');
+
+  copyAddressButton.addEventListener('click', () => {
+    navigator.clipboard.writeText('4Ka7RcmhK7MXzN17mtH68RtBr17YBZmEcWX4m7Lrpump');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+  });
+
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+    document.querySelector('.scroll-progress').style.width = `${scrollPercentage}%`;
+  });
+
+  // Logo click handler for smooth scroll to top
+  document.getElementById('logo-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+  });
+
+  // Parallax effect for How to Buy section
+  window.addEventListener('scroll', () => {
+    const parallaxBg = document.querySelector('.parallax-bg');
+    const scrolled = window.pageYOffset;
+    parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Close mobile menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        navLinks.style.display = 'none';
+      }
+    });
+  });
+
+  // Adjust menu display on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      navLinks.style.display = 'flex';
+    } else {
+      navLinks.style.display = 'none';
+    }
+  });
+</script>
+
+</body></html>
